@@ -1,31 +1,32 @@
 package com.adam.blackjack;
 
 public enum Rank {
-    ACE,
-    TWO,
-    THREE,
-    FOUR,
-    FIVE,
-    SIX,
-    SEVEN,
-    EIGHT,
-    NINE,
-    TEN,
-    JACK,
-    QUEEN,
-    KING;
+    ACE(1),
+    TWO(2),
+    THREE(3),
+    FOUR(4),
+    FIVE(5),
+    SIX(6),
+    SEVEN(7),
+    EIGHT(8),
+    NINE(9),
+    TEN(10),
+    JACK(10),
+    QUEEN(10),
+    KING(10);
 
     //Rank JACK = new Rank("JACK"); - kinda equivalent
     //Rank QUEEN = new Rank("QUEEN");
     //Rank KING = new Rank("KING");
     //...
 
+    private final int value;
+
+    Rank(int value) {
+        this.value = value;
+    }
+
     public int getValue() {
-        return switch (this) {
-            //this = the enum constant (current instance) we are calling the method on
-            case JACK, QUEEN, KING -> 10;
-            //default -> this.ordinal() + 1; - ordinal is inhereted by the current instance
-            default -> ordinal() + 1;
-        };
+        return value;
     }
 }
